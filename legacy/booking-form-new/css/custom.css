@@ -1,0 +1,14 @@
+body {
+	--main-color: #4578b4;
+}
+
+.label {
+	background: none;
+}
+
+form {
+      background: white;
+      margin-top: 40px;
+      z-index: 0;
+}
+

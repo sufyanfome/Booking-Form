@@ -1,0 +1,71 @@
+[13-Jan-2021 02:52:55 CST6CDT] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home/antoanet/public_html/fastkleancouk/wp-content/themes/rebound/booking-form-new/submit.php on line 69
+[09-Aug-2021 10:20:25 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/submit.php on line 1138
+[24-Nov-2021 13:02:24 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_home_path() in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/main.php:4
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/main.php on line 4
+[24-Nov-2021 13:59:41 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/booking-details.php on line 80
+[25-Nov-2021 11:52:46 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function validate_gift_card() in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/main.php:41
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/main.php on line 41
+[25-Nov-2021 11:54:38 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/main.php:48
+Stack trace:
+#0 /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/main.php(102): validate_gift_card('testtest')
+#1 {main}
+  thrown in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/main.php on line 48
+[25-Nov-2021 11:55:48 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/main.php:49
+Stack trace:
+#0 /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/main.php(103): validate_gift_card('testtest')
+#1 {main}
+  thrown in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/main.php on line 49
+[25-Nov-2021 12:04:33 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/main.php:64
+Stack trace:
+#0 /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/main.php(106): get_gift_card_amount('WAEF-3QQG-5RNV-...')
+#1 {main}
+  thrown in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/main.php on line 64
+[25-Nov-2021 12:04:59 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/main.php:64
+Stack trace:
+#0 /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/main.php(106): get_gift_card_amount('WAEF-3QQG-5RNV-...')
+#1 {main}
+  thrown in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/main.php on line 64
+[25-Nov-2021 12:05:05 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/main.php:65
+Stack trace:
+#0 /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/main.php(107): get_gift_card_amount('WAEF-3QQG-5RNV-...')
+#1 {main}
+  thrown in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/main.php on line 65
+[25-Nov-2021 13:52:02 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/main.php:92
+Stack trace:
+#0 /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/main.php(104): deduct_from_gift_card('WAEF-3QQG-5RNV-...', '1')
+#1 {main}
+  thrown in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/main.php on line 92
+[03-Dec-2021 10:17:24 UTC] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/PHPMailer/PHPMailer.php on line 2689
+[03-Dec-2021 10:18:28 UTC] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/PHPMailer/PHPMailer.php on line 2689
+[10-Dec-2024 00:44:39 UTC] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/PHPMailer/PHPMailer.php on line 2689
+[17-Dec-2024 10:58:44 UTC] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/PHPMailer/PHPMailer.php on line 2689
+[17-Dec-2024 10:58:50 UTC] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/PHPMailer/PHPMailer.php on line 2689
+[18-Dec-2024 01:14:30 UTC] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/PHPMailer/PHPMailer.php on line 2689
+[18-Dec-2024 01:15:03 UTC] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/PHPMailer/PHPMailer.php on line 2689
+[04-Jan-2025 01:20:45 UTC] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/PHPMailer/PHPMailer.php on line 2689
+[04-Jan-2025 01:21:21 UTC] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/PHPMailer/PHPMailer.php on line 2689
+[19-Jan-2025 10:29:13 UTC] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/PHPMailer/PHPMailer.php on line 2689
+[19-Jan-2025 10:29:28 UTC] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/PHPMailer/PHPMailer.php on line 2689
+[11-Feb-2025 10:46:07 UTC] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/PHPMailer/PHPMailer.php on line 2689
+[16-Feb-2025 09:12:09 UTC] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/PHPMailer/PHPMailer.php on line 2689
+[18-Feb-2025 18:02:03 UTC] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/PHPMailer/PHPMailer.php on line 2689
+[28-Feb-2025 00:38:47 UTC] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/PHPMailer/PHPMailer.php on line 2689
+[28-Feb-2025 00:39:14 UTC] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/PHPMailer/PHPMailer.php on line 2689
+[14-Apr-2025 14:35:29 UTC] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/PHPMailer/PHPMailer.php on line 2689
+[01-Jun-2025 10:03:50 UTC] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/PHPMailer/PHPMailer.php on line 2689
+[26-Aug-2025 09:51:42 UTC] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/PHPMailer/PHPMailer.php on line 2689
+[30-Aug-2025 12:42:27 UTC] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/PHPMailer/PHPMailer.php on line 2689
+[24-Oct-2025 12:04:58 UTC] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/PHPMailer/PHPMailer.php on line 2689
+[04-Nov-2025 11:16:03 UTC] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/PHPMailer/PHPMailer.php on line 2689
+[04-Nov-2025 11:17:57 UTC] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/PHPMailer/PHPMailer.php on line 2689
+[03-Mar-2026 20:39:16 UTC] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/PHPMailer/PHPMailer.php on line 2689
+[31-Mar-2026 14:44:26 UTC] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/PHPMailer/PHPMailer.php on line 2689
+[16-Apr-2026 15:37:24 UTC] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/PHPMailer/PHPMailer.php on line 2689
+[08-May-2026 15:54:03 UTC] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/PHPMailer/PHPMailer.php on line 2689
+[18-May-2026 19:14:35 UTC] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/PHPMailer/PHPMailer.php on line 2689
+[11-Jul-2026 16:51:23 UTC] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/PHPMailer/PHPMailer.php on line 2689
+[15-Jul-2026 16:32:47 UTC] PHP Deprecated:  Function get_magic_quotes_runtime() is deprecated in /home/customer/www/fastklean.co.uk/public_html/wp-content/themes/rebound/booking-form-new/PHPMailer/PHPMailer.php on line 2689
