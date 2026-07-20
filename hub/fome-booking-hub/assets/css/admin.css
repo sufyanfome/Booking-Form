@@ -1,0 +1,153 @@
+/* Fome Booking Hub — admin styles */
+
+/* -------------------------------------------------------------------------
+   Dashboard cards
+   ------------------------------------------------------------------------- */
+.fome-dashboard-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	gap: 16px;
+	margin-top: 20px;
+}
+
+.fome-stat-card {
+	background: #fff;
+	border: 1px solid #e0e0e0;
+	border-radius: 8px;
+	padding: 20px;
+}
+
+.fome-stat-card__label {
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: .05em;
+	color: #666;
+	margin: 0 0 8px;
+}
+
+.fome-stat-card__value {
+	font-size: 32px;
+	font-weight: 700;
+	color: #1d2327;
+	line-height: 1;
+}
+
+/* -------------------------------------------------------------------------
+   Colour swatch
+   ------------------------------------------------------------------------- */
+.fome-colour-swatch {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border-radius: 4px;
+	border: 1px solid rgba(0,0,0,.15);
+	vertical-align: middle;
+	margin-right: 6px;
+}
+
+/* -------------------------------------------------------------------------
+   Colour picker wrapper
+   ------------------------------------------------------------------------- */
+.fome-colour-picker-wrap {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.fome-colour-preview {
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	border-radius: 6px;
+	border: 1px solid #ccc;
+	cursor: pointer;
+	vertical-align: middle;
+}
+
+/* -------------------------------------------------------------------------
+   API key display
+   ------------------------------------------------------------------------- */
+.fome-api-key-box {
+	background: #f0f0f1;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	padding: 10px 14px;
+	font-family: monospace;
+	font-size: 14px;
+	word-break: break-all;
+	margin: 8px 0;
+}
+
+/* -------------------------------------------------------------------------
+   Checklist
+   ------------------------------------------------------------------------- */
+.fome-checklist {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.fome-checklist li {
+	padding: 6px 0 6px 28px;
+	position: relative;
+	font-size: 14px;
+}
+
+.fome-checklist li::before {
+	content: '☐';
+	position: absolute;
+	left: 0;
+	font-size: 16px;
+	color: #666;
+}
+
+/* -------------------------------------------------------------------------
+   Prices table
+   ------------------------------------------------------------------------- */
+.fome-prices-group {
+	margin-bottom: 24px;
+}
+
+.fome-prices-group__title {
+	font-size: 16px;
+	font-weight: 600;
+	margin: 0 0 10px;
+	padding-bottom: 6px;
+	border-bottom: 2px solid #e0e0e0;
+}
+
+.fome-prices-table td input[type="number"] {
+	width: 100px;
+}
+
+/* -------------------------------------------------------------------------
+   Booking status badges
+   ------------------------------------------------------------------------- */
+.fome-status {
+	display: inline-block;
+	padding: 3px 10px;
+	border-radius: 100px;
+	font-size: 12px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: .04em;
+}
+
+.fome-status--pending_payment { background: #fff3cd; color: #856404; }
+.fome-status--paid            { background: #d1e7dd; color: #0f5132; }
+.fome-status--cancelled       { background: #f8d7da; color: #842029; }
+.fome-status--quote_sent      { background: #cff4fc; color: #055160; }
+
+/* -------------------------------------------------------------------------
+   Booking detail view
+   ------------------------------------------------------------------------- */
+.fome-email-preview {
+	background: #f6f7f7;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	padding: 16px 20px;
+	font-size: 14px;
+	line-height: 1.6;
+	max-height: 500px;
+	overflow-y: auto;
+}
