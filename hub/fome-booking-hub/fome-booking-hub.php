@@ -30,3 +30,6 @@ add_action( 'plugins_loaded', function () {
 	Fome_REST_API::init();
 	Fome_Hub_Admin::init();
 } );
+
+// Serve plugin zip downloads — must run early, before WordPress sends output
+add_action( 'init', [ 'Fome_Admin_Plugin_Releases', 'handle_download_request' ], 1 );

@@ -65,6 +65,13 @@ class Fome_REST_API {
 			'callback'            => [ __CLASS__, 'send_test_email' ],
 			'permission_callback' => [ __CLASS__, 'hub_admin_only' ],
 		] );
+
+		// GET /fome/v1/plugin-update — per-site plugin calls this to check for updates
+		register_rest_route( self::NS, '/plugin-update', [
+			'methods'             => 'GET',
+			'callback'            => [ __CLASS__, 'plugin_update_info' ],
+			'permission_callback' => [ __CLASS__, 'auth' ],
+		] );
 	}
 
 	public static function auth( \WP_REST_Request $request ): bool|\WP_Error {
@@ -514,5 +521,29 @@ class Fome_REST_API {
 			return new \WP_REST_Response( [ 'sent' => true ], 200 );
 		}
 		return new \WP_Error( 'mail_failed', 'Test email failed to send', [ 'status' => 500 ] );
+	}
+
+	// ----------------------------------------------------------------
+	// GET /fome/v1/plugin-update
+	// ----------------------------------------------------------------
+
+	/**
+	 * Returns the current plugin release info so per-site plugins can
+	 * check whether an update is available and get the download URL.
+	 */
+	public static function plugin_update_info( \WP_REST_Request $request ): \WP_REST_Response {
+		$release = Fome_Admin_Plugin_Releases::get_current_release();
+
+		if ( empty( $release ) ) {
+			return new \WP_REST_Response( [ 'available' => false ], 200 );
+		}
+
+		return new \WP_REST_Response( [
+			'available'    => true,
+			'version'      => $release['version'],
+			'download_url' => $release['download_url'],
+			'changelog'    => $release['changelog'] ?? '',
+			'uploaded_at'  => $release['uploaded_at'] ?? '',
+		], 200 );
 	}
 }

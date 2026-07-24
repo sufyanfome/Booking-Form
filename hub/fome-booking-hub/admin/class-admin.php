@@ -8,6 +8,7 @@ require_once FOME_HUB_DIR . 'admin/class-admin-bookings.php';
 require_once FOME_HUB_DIR . 'admin/class-admin-stripe.php';
 require_once FOME_HUB_DIR . 'admin/class-admin-postcodes.php';
 require_once FOME_HUB_DIR . 'admin/class-admin-gift-cards.php';
+require_once FOME_HUB_DIR . 'admin/class-admin-plugin-releases.php';
 
 class Fome_Hub_Admin {
 
@@ -23,6 +24,7 @@ class Fome_Hub_Admin {
 		Fome_Admin_Stripe::init();
 		Fome_Admin_Postcodes::init();
 		Fome_Admin_GiftCards::init();
+		Fome_Admin_Plugin_Releases::init();
 	}
 
 	public static function register_menus(): void {
@@ -46,6 +48,7 @@ class Fome_Hub_Admin {
 		add_submenu_page( 'fome-hub', __( 'Stripe Accounts', 'fome-hub' ), __( 'Stripe Accounts', 'fome-hub' ), $cap, 'fome-stripe',   [ 'Fome_Admin_Stripe', 'render' ] );
 		add_submenu_page( 'fome-hub', __( 'Postcodes', 'fome-hub' ),    __( 'Postcodes', 'fome-hub' ),    $cap, 'fome-postcodes',       [ 'Fome_Admin_Postcodes', 'render' ] );
 		add_submenu_page( 'fome-hub', __( 'Gift Cards & Codes', 'fome-hub' ), __( 'Gift Cards & Codes', 'fome-hub' ), $cap, 'fome-gift-cards', [ 'Fome_Admin_GiftCards', 'render' ] );
+		add_submenu_page( 'fome-hub', __( 'Plugin Releases', 'fome-hub' ), __( 'Plugin Releases', 'fome-hub' ), $cap, 'fome-plugin-releases', [ 'Fome_Admin_Plugin_Releases', 'render' ] );
 	}
 
 	public static function render_dashboard(): void {

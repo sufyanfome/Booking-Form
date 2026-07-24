@@ -20,10 +20,12 @@ require_once FOME_BOOKING_DIR . 'includes/class-config.php';
 require_once FOME_BOOKING_DIR . 'includes/class-submission-handler.php';
 require_once FOME_BOOKING_DIR . 'includes/class-shortcode.php';
 require_once FOME_BOOKING_DIR . 'includes/class-settings.php';
+require_once FOME_BOOKING_DIR . 'includes/class-updater.php';
 
 add_action( 'plugins_loaded', function () {
 	Fome_Booking_Settings::init();
 	Fome_Booking_Shortcode::init();
+	Fome_Booking_Updater::init();
 } );
 
 // Exclude booking page from caching (SiteGround Speed Optimizer compatibility)
