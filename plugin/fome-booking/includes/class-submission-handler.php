@@ -1,7 +1,7 @@
 <?php
 defined( 'ABSPATH' ) || exit;
 
-require_once dirname( __DIR__, 3 ) . '/shared/email-contract/EmailRenderer.php';
+require_once FOME_BOOKING_DIR . 'includes/email-contract/EmailRenderer.php';
 
 /**
  * Handles the booking form POST submission.
