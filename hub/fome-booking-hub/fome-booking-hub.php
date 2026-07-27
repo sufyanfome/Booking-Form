@@ -27,6 +27,7 @@ require_once FOME_HUB_DIR . 'admin/class-admin.php';
 register_activation_hook( __FILE__, [ 'Fome_DB_Installer', 'install' ] );
 
 add_action( 'plugins_loaded', function () {
+	Fome_DB_Installer::grant_capabilities();
 	Fome_REST_API::init();
 	Fome_Hub_Admin::init();
 } );

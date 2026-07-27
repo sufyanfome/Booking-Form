@@ -14,7 +14,15 @@ class Fome_DB_Installer {
 		}
 
 		self::seed_defaults();
+		self::grant_capabilities();
 		update_option( 'fome_hub_db_version', FOME_HUB_VERSION );
+	}
+
+	public static function grant_capabilities(): void {
+		$admin = get_role( 'administrator' );
+		if ( $admin && ! $admin->has_cap( 'manage_fome_bookings' ) ) {
+			$admin->add_cap( 'manage_fome_bookings' );
+		}
 	}
 
 	private static function schema( string $charset ): array {
