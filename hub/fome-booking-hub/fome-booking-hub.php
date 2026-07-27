@@ -28,6 +28,10 @@ register_activation_hook( __FILE__, [ 'Fome_DB_Installer', 'install' ] );
 
 add_action( 'plugins_loaded', function () {
 	Fome_DB_Installer::grant_capabilities();
+	// Re-run install if DB version is missing (covers partial-activation recovery)
+	if ( get_option( 'fome_hub_db_version' ) !== FOME_HUB_VERSION ) {
+		Fome_DB_Installer::install();
+	}
 	Fome_REST_API::init();
 	Fome_Hub_Admin::init();
 } );

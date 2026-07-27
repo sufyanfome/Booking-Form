@@ -231,29 +231,45 @@ class Fome_Admin_Sites {
 		$recipients_raw = sanitize_textarea_field( $_POST['recipient_emails'] ?? '' );
 		$recipients     = array_values( array_filter( array_map( 'trim', explode( "\n", $recipients_raw ) ) ) );
 
+		$stripe_account_id = $_POST['stripe_account_id'] !== '' ? (int) $_POST['stripe_account_id'] : null;
+
 		$data = [
-			'name'             => sanitize_text_field( $_POST['name'] ?? '' ),
-			'domain'           => sanitize_text_field( $_POST['domain'] ?? '' ),
-			'brand_colour'     => sanitize_hex_color( $_POST['brand_colour'] ?? '#4578b4' ) ?: '#4578b4',
-			'from_email'       => sanitize_email( $_POST['from_email'] ?? '' ),
-			'from_name'        => sanitize_text_field( $_POST['from_name'] ?? '' ),
-			'footer_site_name' => sanitize_text_field( $_POST['footer_site_name'] ?? '' ),
-			'footer_site_url'  => esc_url_raw( $_POST['footer_site_url'] ?? '' ),
-			'recipient_emails' => wp_json_encode( $recipients ),
-			'stripe_account_id'=> $_POST['stripe_account_id'] ? (int) $_POST['stripe_account_id'] : null,
+			'name'              => sanitize_text_field( $_POST['name'] ?? '' ),
+			'domain'            => sanitize_text_field( $_POST['domain'] ?? '' ),
+			'brand_colour'      => sanitize_hex_color( $_POST['brand_colour'] ?? '#4578b4' ) ?: '#4578b4',
+			'from_email'        => sanitize_email( $_POST['from_email'] ?? '' ),
+			'from_name'         => sanitize_text_field( $_POST['from_name'] ?? '' ),
+			'footer_site_name'  => sanitize_text_field( $_POST['footer_site_name'] ?? '' ),
+			'footer_site_url'   => esc_url_raw( $_POST['footer_site_url'] ?? '' ),
+			'recipient_emails'  => wp_json_encode( $recipients ),
 			'stripe_success_url'=> esc_url_raw( $_POST['stripe_success_url'] ?? '' ),
 			'stripe_cancel_url' => esc_url_raw( $_POST['stripe_cancel_url'] ?? '' ),
-			'status'           => in_array( $_POST['status'] ?? '', [ 'active', 'inactive' ], true ) ? $_POST['status'] : 'active',
+			'status'            => in_array( $_POST['status'] ?? '', [ 'active', 'inactive' ], true ) ? $_POST['status'] : 'active',
 		];
+
+		// Handle nullable FK separately to avoid wpdb NULL-as-string issue
+		if ( $stripe_account_id !== null ) {
+			$data['stripe_account_id'] = $stripe_account_id;
+		}
 
 		$enabled_service_ids = array_map( 'intval', (array) ( $_POST['services'] ?? [] ) );
 
+		$wpdb->show_errors();
+
 		if ( $site_id ) {
-			$wpdb->update( "{$p}fome_sites", $data, [ 'id' => $site_id ] );
+			$result = $wpdb->update( "{$p}fome_sites", $data, [ 'id' => $site_id ] );
 		} else {
 			$data['api_key_hash'] = sanitize_text_field( $_POST['_api_key_hash'] ?? '' );
-			$wpdb->insert( "{$p}fome_sites", $data );
-			$site_id = $wpdb->insert_id;
+			$result  = $wpdb->insert( "{$p}fome_sites", $data );
+			$site_id = (int) $wpdb->insert_id;
+		}
+
+		if ( $result === false || ( ! $site_id && empty( $_POST['site_id'] ) ) ) {
+			$err = $wpdb->last_error ?: 'Unknown database error.';
+			wp_die(
+				'<h1>Site could not be saved</h1><p>' . esc_html( $err ) . '</p>' .
+				'<p><a href="' . esc_url( admin_url( 'admin.php?page=fome-sites' ) ) . '">&larr; Back to Sites</a></p>'
+			);
 		}
 
 		// Sync site_services
@@ -265,7 +281,7 @@ class Fome_Admin_Sites {
 			}
 		}
 
-		$new_key = sanitize_text_field( $_POST['_api_key'] ?? '' );
+		$new_key  = sanitize_text_field( $_POST['_api_key'] ?? '' );
 		$redirect = admin_url( 'admin.php?page=fome-sites&notice=saved' );
 		if ( $new_key ) {
 			$redirect = add_query_arg( 'new_key', urlencode( $new_key ), $redirect );
