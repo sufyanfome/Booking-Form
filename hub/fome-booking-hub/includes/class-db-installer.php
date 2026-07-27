@@ -6,11 +6,9 @@ class Fome_DB_Installer {
 	public static function install(): void {
 		global $wpdb;
 		$charset = $wpdb->get_charset_collate();
-		require_once ABSPATH . 'wp-admin/includes/upgrade.php';
 
-		$tables = self::schema( $charset );
-		foreach ( $tables as $sql ) {
-			dbDelta( $sql );
+		foreach ( self::schema( $charset ) as $sql ) {
+			$wpdb->query( $sql );
 		}
 
 		self::seed_defaults();
@@ -31,7 +29,7 @@ class Fome_DB_Installer {
 
 		return [
 			// Sites
-			"CREATE TABLE {$p}fome_sites (
+			"CREATE TABLE IF NOT EXISTS {$p}fome_sites (
 				id              BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
 				name            VARCHAR(120)    NOT NULL,
 				domain          VARCHAR(255)    NOT NULL UNIQUE,
@@ -51,7 +49,7 @@ class Fome_DB_Installer {
 			) {$charset};",
 
 			// Stripe accounts
-			"CREATE TABLE {$p}fome_stripe_accounts (
+			"CREATE TABLE IF NOT EXISTS {$p}fome_stripe_accounts (
 				id              BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
 				label           VARCHAR(120)    NOT NULL,
 				publishable_key TEXT            NOT NULL DEFAULT '',
@@ -62,7 +60,7 @@ class Fome_DB_Installer {
 			) {$charset};",
 
 			// Master service catalogue
-			"CREATE TABLE {$p}fome_services (
+			"CREATE TABLE IF NOT EXISTS {$p}fome_services (
 				id              BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
 				service_key     VARCHAR(80)     NOT NULL UNIQUE,
 				name            VARCHAR(120)    NOT NULL,
@@ -74,7 +72,7 @@ class Fome_DB_Installer {
 			) {$charset};",
 
 			// Per-site service toggles
-			"CREATE TABLE {$p}fome_site_services (
+			"CREATE TABLE IF NOT EXISTS {$p}fome_site_services (
 				site_id         BIGINT UNSIGNED NOT NULL,
 				service_id      BIGINT UNSIGNED NOT NULL,
 				enabled         TINYINT(1)      NOT NULL DEFAULT 1,
@@ -82,7 +80,7 @@ class Fome_DB_Installer {
 			) {$charset};",
 
 			// Prices
-			"CREATE TABLE {$p}fome_prices (
+			"CREATE TABLE IF NOT EXISTS {$p}fome_prices (
 				id              BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
 				price_key       VARCHAR(100)    NOT NULL UNIQUE,
 				label           VARCHAR(200)    NOT NULL,
@@ -94,21 +92,21 @@ class Fome_DB_Installer {
 			) {$charset};",
 
 			// Global settings
-			"CREATE TABLE {$p}fome_settings (
+			"CREATE TABLE IF NOT EXISTS {$p}fome_settings (
 				setting_key     VARCHAR(80)     NOT NULL,
 				setting_value   TEXT            NOT NULL DEFAULT '',
 				PRIMARY KEY (setting_key)
 			) {$charset};",
 
 			// Postcode coverage (shared across all sites)
-			"CREATE TABLE {$p}fome_postcodes (
+			"CREATE TABLE IF NOT EXISTS {$p}fome_postcodes (
 				id              BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
 				outcode         VARCHAR(8)      NOT NULL UNIQUE,
 				PRIMARY KEY (id)
 			) {$charset};",
 
 			// Gift cards
-			"CREATE TABLE {$p}fome_gift_cards (
+			"CREATE TABLE IF NOT EXISTS {$p}fome_gift_cards (
 				id              BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
 				code            VARCHAR(50)     NOT NULL UNIQUE,
 				balance         DECIMAL(10,2)   NOT NULL DEFAULT 0,
@@ -118,7 +116,7 @@ class Fome_DB_Installer {
 			) {$charset};",
 
 			// Discount codes
-			"CREATE TABLE {$p}fome_discount_codes (
+			"CREATE TABLE IF NOT EXISTS {$p}fome_discount_codes (
 				id              BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
 				code            VARCHAR(50)     NOT NULL UNIQUE,
 				multiplier      DECIMAL(5,4)    NOT NULL DEFAULT 1.0000,
@@ -128,7 +126,7 @@ class Fome_DB_Installer {
 			) {$charset};",
 
 			// Bookings log
-			"CREATE TABLE {$p}fome_bookings (
+			"CREATE TABLE IF NOT EXISTS {$p}fome_bookings (
 				id                  BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
 				site_id             BIGINT UNSIGNED NOT NULL,
 				service             VARCHAR(120)    NOT NULL,
