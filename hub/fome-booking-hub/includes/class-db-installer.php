@@ -159,7 +159,10 @@ class Fome_DB_Installer {
 			'gift_cards_enabled'=> 'true',
 		];
 		foreach ( $defaults as $k => $v ) {
-			$wpdb->ignore()->insert( "{$p}fome_settings", [ 'setting_key' => $k, 'setting_value' => $v ] );
+			$wpdb->query( $wpdb->prepare(
+				"INSERT IGNORE INTO `{$p}fome_settings` (setting_key, setting_value) VALUES (%s, %s)",
+				$k, $v
+			) );
 		}
 
 		// Services catalogue
